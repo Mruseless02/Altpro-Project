@@ -9,8 +9,10 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Button LoadButton;
     [SerializeField] private string loadScene;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator animator1;
+    [SerializeField] private Animator animator2;
     private int enemyKilledTotal;
+    public GameObject tutorial;
     public TMP_Text EnemyDeath;
     private void Start()
     {
@@ -34,7 +36,8 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
-        animator.Play("MainMenuDisappear");
-        animator.Play("TutorialAppear");
+        tutorial.SetActive(true);
+        animator1.Play("MainMenuDisappear");
+        animator2.Play("TutorialAppear");
     }
 }

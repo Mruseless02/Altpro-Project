@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class EvilMage : MonoBehaviour
 {
     private GameObject Player;
-    private GameObject AttackRange;
+    public GameObject AttackRange1;
+    public GameObject AttackRange2;
     private Vector3 PlayerPos;
     private Vector3 OriginPos;
     private Rigidbody2D rb;
@@ -22,7 +24,6 @@ public class EvilMage : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindWithTag("Player");
-        AttackRange = transform.GetChild(0).gameObject;
         PlayerPos = Player.transform.position;
         OriginPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
@@ -45,8 +46,32 @@ public class EvilMage : MonoBehaviour
             animator.Play("EvilMage@Run");
             canAttack = false;
         }
+        flip();
+        attackFlip();
     }
 
+    private void attackFlip()
+    {
+        if (Sprite.flipX == true)
+        {
+            AttackRange1.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            AttackRange2.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+    }
+
+    private void flip()
+    {
+        {
+            if (transform.position.x > PlayerPos.x)
+            {
+                Sprite.flipX = true;
+            }
+            else
+            {
+                Sprite.flipY = false;
+            }
+        }
+    }
     private void Attack()
     {
         Force = 15;
@@ -54,13 +79,21 @@ public class EvilMage : MonoBehaviour
         rb.velocity = new Vector3(target.x, target.y).normalized * Force;
     }
 
-    private void AttackActive()
+    private void AttackActive1()
     {
-        AttackRange.SetActive(true);
+        AttackRange1.SetActive(true);
     }
-    private void AttackInactive()
+    private void AttackActive2()
     {
-        AttackRange.SetActive(false);
+        AttackRange2.SetActive(true);
+    }
+    private void AttackInactive1()
+    {
+        AttackRange1.SetActive(false);
+    }
+    private void AttackInactive2()
+    {
+        AttackRange2.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -78,7 +111,6 @@ public class EvilMage : MonoBehaviour
     {
         Timer = 0;
         transform.position = OriginPos;
-        AttackRange.SetActive(false);
     }
     private void PlaySound()
     {

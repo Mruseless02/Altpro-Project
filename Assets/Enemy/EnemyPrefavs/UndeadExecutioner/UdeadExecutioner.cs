@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class UdeadExecutioner : MonoBehaviour
 {
+    private SpriteRenderer sprite;
     private Rigidbody2D rb;
     [SerializeField]
-    private GameObject AttackRad;
+    private GameObject AttackRad_Vertical;
+    [SerializeField]
+    private GameObject AttackRad_Horizontal;
     [SerializeField]
     private GameObject Summons;
     [SerializeField]
@@ -28,6 +31,7 @@ public class UdeadExecutioner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         Origin = gameObject.transform.position;
         Player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +41,7 @@ public class UdeadExecutioner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         SpawnTime += Time.deltaTime;
         timer += Time.deltaTime;
         if(timer > interval)
@@ -56,16 +61,38 @@ public class UdeadExecutioner : MonoBehaviour
                     Spawn = 0;
                 }
                 var Ghost = GameObject.FindWithTag("Summons").GetComponent<UndeadSummon>();
-                for (int i = 0; i < SummonPos.Length; i++)
+                for (int i = 0; i < SummonPos.Length-1; i++)
                 {
                     Spirit[i] = Ghost;
-                    Ghost.AttackPlayer();
-                    
+                    Ghost.AttackPlayer(); 
                 }
             }
         }
+        Flip();
+        FlipAttack();
     }
 
+
+    private void Flip()
+    {
+        if(transform.position.x > Player.transform.position.x)
+        {
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
+        }
+    }
+
+    private void FlipAttack()
+    {
+        if(sprite.flipX == true)
+        {
+           AttackRad_Horizontal.transform.rotation = Quaternion.Euler(0f, 180f,0f);
+           AttackRad_Vertical.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+    }
 
     private void Attack()
     {
@@ -82,9 +109,15 @@ public class UdeadExecutioner : MonoBehaviour
         {
             Force = 0;
             timer = 0;
-            AttackRad.SetActive(true);
+            AttackRad_Horizontal.SetActive(true);
             animator.Play("Undead@Attack");
         }
+    }
+
+    private void AttackVertical()
+    {
+        AttackRad_Horizontal.SetActive(false);
+        AttackRad_Vertical.SetActive(true);
     }
     private void Summon()
     {
@@ -95,11 +128,12 @@ public class UdeadExecutioner : MonoBehaviour
             Spawn++;
             SpawnTime = 0;
         }
+
     }
 
     private void hasAttack()
     {
-        AttackRad.SetActive(false);
+        AttackRad_Vertical.SetActive(false);
         transform.position = Origin;
     }
 }

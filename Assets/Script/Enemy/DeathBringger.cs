@@ -9,7 +9,7 @@ public class DeathBringger : MonoBehaviour
     private GameObject Player;
     [SerializeField]
     private GameObject Spell;
-    private GameObject AttackRange;
+    public GameObject AttackRange;
     private Vector3 PlayerPos;
     private Vector3 OriginPos;
     private Rigidbody2D rb;
@@ -36,13 +36,13 @@ public class DeathBringger : MonoBehaviour
         Sprite = GetComponent<SpriteRenderer>();
         PlayerPos = Player.transform.position;
         OriginPos = gameObject.transform.position;
-        AttackRange = transform.GetChild(0).gameObject;
-        flip();
     }
 
     // Update is called once per frame
     void Update()
     {
+        flip();
+        flipAttack();
         Timer += Time.deltaTime;
         if(Timer > Delay)
         {
@@ -52,9 +52,16 @@ public class DeathBringger : MonoBehaviour
         {
             Attack(rand);
         }
-
     }
 
+
+    private void flipAttack()
+    {
+        if(Sprite.flipX == true)
+        {
+            AttackRange.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+    }
     private void randomVal()
     {
         rand = Random.Range(0, 9);
@@ -108,14 +115,14 @@ public class DeathBringger : MonoBehaviour
 
     private void flip()
     {
-       if(transform.position.x > PlayerPos.x)
+       if(transform.position.x < PlayerPos.x)
        {
             Sprite.flipX = true;
        }
-        else
-        {
-            Sprite.flipY = false;
-        }
+       else
+       {
+            Sprite.flipX = false;
+       }
     }
     private void PlaySound()
     {

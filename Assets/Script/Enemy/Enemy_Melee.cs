@@ -15,7 +15,7 @@ public class Enemy_Melee : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private Enemy_Hp hp;
-    private GameObject attack_range = default;
+    public GameObject attack_range = default;
     private SpriteRenderer sprite;
     private bool isAttacking = false;
     public float intervals;
@@ -39,6 +39,7 @@ public class Enemy_Melee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FlipAttack();
         timer += Time.deltaTime;
         if (timer >= intervals)
         {
@@ -46,6 +47,13 @@ public class Enemy_Melee : MonoBehaviour
         }
     }
 
+    void FlipAttack()
+    {
+        if(sprite.flipX == true)
+        {
+            attack_range.transform.rotation = Quaternion.Euler(0f, 180f, 0f); 
+        }
+    }
     private void Attack()
     {
         if(timer >= intervals)

@@ -75,7 +75,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -99,12 +99,12 @@ PolygonCollider2D:
       - {x: 4.733269, y: 2.3410761}
       - {x: 4.4985228, y: 0.8757727}
       - {x: 3.077536, y: -0.36783543}
-      - {x: 2.7768168, y: -0.8677244}
-      - {x: 2.986799, y: -1.3418812}
-      - {x: 3.4317698, y: -1.9275374}
-      - {x: 4.2821503, y: -1.9990147}
-      - {x: 5.1868773, y: -1.2788458}
-      - {x: 6.12061, y: 0.007754147}
+      - {x: 0.95744824, y: -1.8757526}
+      - {x: 1.9050124, y: -2.497426}
+      - {x: 2.8171182, y: -3.0584955}
+      - {x: 5.068904, y: -3.3758345}
+      - {x: 6.2440767, y: -2.3360472}
+      - {x: 7.226983, y: -0.41020817}
       - {x: 6.623311, y: 1.9338632}
   m_UseDelaunayMesh: 0
 --- !u!1 &6338343368496738508
@@ -261,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd75d373a085dd44b988309cb219af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackRange1: {fileID: 0}
+  AttackRange2: {fileID: 0}
   Force: 0
   Timer: 0
   Delay: 5
@@ -426,7 +428,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -441,14 +443,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 5.77628, y: 3.9146426}
-      - {x: 5.1456795, y: 4.4701695}
-      - {x: 4.188637, y: 4.7718577}
+    - - {x: 6.759722, y: 4.111331}
+      - {x: 5.9816055, y: 4.8635464}
+      - {x: 4.7295322, y: 5.0668907}
       - {x: 3.9610224, y: 4.4068003}
-      - {x: 4.4347577, y: 2.3410761}
-      - {x: 3.3626142, y: 0.3923733}
-      - {x: 3.1840715, y: -0.70482266}
-      - {x: 4.1512523, y: -0.7464993}
-      - {x: 5.1868773, y: -0.43718624}
+      - {x: 3.3529696, y: 2.242732}
+      - {x: 1.5432457, y: 0.4169601}
+      - {x: 1.4876332, y: -1.7620233}
+      - {x: 4.347941, y: -2.270835}
+      - {x: 5.4081516, y: -1.445215}
       - {x: 6.202482, y: 2.2053661}
   m_UseDelaunayMesh: 0

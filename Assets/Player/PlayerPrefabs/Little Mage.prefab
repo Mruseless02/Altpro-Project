@@ -251,6 +251,7 @@ MonoBehaviour:
   ParticleSpawn: {fileID: 5074256989324529719}
   useSpawnPoint: 1
   CanMove: 1
+  ui: {fileID: 0}
 --- !u!114 &2010738747422745340
 MonoBehaviour:
   m_ObjectHideFlags: 0

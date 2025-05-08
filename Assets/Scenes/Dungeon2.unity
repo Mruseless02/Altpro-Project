@@ -12082,7 +12082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2393202352851138506, guid: c6ab5a45103e18d4583362a2d9840259, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2393202352851138506, guid: c6ab5a45103e18d4583362a2d9840259, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -12102,7 +12102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2393202352851138506, guid: c6ab5a45103e18d4583362a2d9840259, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: randomScene
+      value: changeScene
       objectReference: {fileID: 0}
     - target: {fileID: 2393202352851138506, guid: c6ab5a45103e18d4583362a2d9840259, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -13265,6 +13265,10 @@ PrefabInstance:
       objectReference: {fileID: 1730664283}
     - target: {fileID: 2010738747422745340, guid: a789d67ba832b2349b7df938e24a19ce, type: 3}
       propertyPath: MainUi
+      value: 
+      objectReference: {fileID: 71255171}
+    - target: {fileID: 2362709636507413287, guid: a789d67ba832b2349b7df938e24a19ce, type: 3}
+      propertyPath: ui
       value: 
       objectReference: {fileID: 71255171}
     - target: {fileID: 2362709636507413287, guid: a789d67ba832b2349b7df938e24a19ce, type: 3}

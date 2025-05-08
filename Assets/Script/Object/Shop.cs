@@ -12,6 +12,7 @@ public class Shop : MonoBehaviour
     private GameObject item;
     public GameObject DropPos;
     public GameObject Canvas;
+    public Player_Control data;
     private bool haventDrop = true;
     private void Start()
     {
@@ -24,7 +25,7 @@ public class Shop : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") == true)
+        if(collision.CompareTag("Player") == true && data.PlayedBefore != true)
         {
             trigger.TriggerDialog();
         }

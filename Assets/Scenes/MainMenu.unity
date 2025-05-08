@@ -902,6 +902,10 @@ PrefabInstance:
       value: GameFile.Sv
       objectReference: {fileID: 0}
     - target: {fileID: 1883371432736428981, guid: f44d44b721011ba44986cd1f1c994eb3, type: 3}
+      propertyPath: encrptFile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1883371432736428981, guid: f44d44b721011ba44986cd1f1c994eb3, type: 3}
       propertyPath: StartGameIfNUll
       value: 0
       objectReference: {fileID: 0}

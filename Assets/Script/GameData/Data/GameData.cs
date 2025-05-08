@@ -8,6 +8,7 @@ public class GameData
     public string Scene;
     public int PointCount;
     public int enemyKilledCount;
+    public bool HavePlayed = false;
     public int keyCount;
     public int HpCount;
     public GameData() 

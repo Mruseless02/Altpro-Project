@@ -10,6 +10,7 @@ public class DialogManager : MonoBehaviour
     public TMP_Text dialogText;
     private Queue<string> sentences;
     public Animator animator;
+    public Player_Control data;
     public bool DialogEnd;
     void Start()
     {
@@ -53,11 +54,12 @@ public class DialogManager : MonoBehaviour
         foreach(char letter in sentence.ToCharArray())
         {
             dialogText.text += letter;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.001f);
         }
     }
     public void EndDialogue()
     {
+        data.PlayedBefore = true;
         DialogEnd = true;
         animator.SetBool("onDialog", false);
     }

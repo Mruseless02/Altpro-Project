@@ -41,9 +41,19 @@ public class Player_Control : MonoBehaviour, IDataPresistence
     [SerializeField] private bool useSpawnPoint = true;
     public bool CanMove = true;
     private float CheckDelay;
+    public GameObject ui;
+    public bool PlayedBefore = false;
     // Start is called before the first frame update
     void Start()
     {
+        if(PlayedBefore == true)
+        {
+            ui.SetActive(true);  
+        }
+        else if(PlayedBefore == false)
+        {
+            ui.SetActive(false);
+        }
         if (useSpawnPoint)
         {
             if (transform.position == Vector3.zero)
@@ -88,6 +98,7 @@ public class Player_Control : MonoBehaviour, IDataPresistence
 
     public void LoadData(GameData data)
     { 
+        this.PlayedBefore = data.HavePlayed;
         this.currentScene = data.Scene;
         this.keys = data.keyCount;
         this.currentHp = data.HpCount;
@@ -97,6 +108,7 @@ public class Player_Control : MonoBehaviour, IDataPresistence
 
     public void SaveData(ref GameData data)
     {
+        data.HavePlayed = this.PlayedBefore;
         data.Scene = this.currentScene;
         data.enemyKilledCount = this.enemyKilled;
         data.HpCount = this.currentHp;

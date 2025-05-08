@@ -31,7 +31,7 @@ public class MainMenu : MonoBehaviour
     }
     public void OnLoadGameClicked()
     {
-        SceneManager.LoadSceneAsync(loadScene);
+        SceneManager.LoadSceneAsync("BaseVillage");
     }
 
     public void Tutorial()

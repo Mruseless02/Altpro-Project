@@ -4,22 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Bullet
   - Ground
-  - SpawnActive
-  - Doors
-  - Stairs
-  - Keys
-  - Intereact
-  - Boss
-  - LockedDoor
-  - Traps
-  - PassiveEnemy
-  - CameraDetect
-  - Summons
-  - Particle
-  - MainUi
   layers:
   - Default
   - TransparentFX
@@ -27,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
+  - 
   - 
   - 
   - 
@@ -56,16 +41,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 169939023
-    locked: 0
-  - name: Decoration
-    uniqueID: 1339666305
-    locked: 0
-  - name: Level
-    uniqueID: 1458256015
-    locked: 0
-  - name: Player
-    uniqueID: 1118396345
     locked: 0
